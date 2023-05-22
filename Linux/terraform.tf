@@ -5,7 +5,7 @@ data "vsphere_datastore" "datastore" {
 }
 
 data "vsphere_compute_cluster" "cluster" {
-  name          = "DCX"
+  name          = var.vmware_clustername
   datacenter_id = data.vsphere_datacenter.dc.id
 }
 
@@ -48,15 +48,15 @@ resource "vsphere_virtual_machine" "vm" {
         customize {
   linux_options {
     host_name = var.vmware_vmname
-    domain    = "example.local"
+    domain    = var.dns_search
   }
 network_interface {
     ipv4_address = var.vmware_vmip
     ipv4_netmask = 24
   }
   ipv4_gateway = var.vmware_gwip
-  dns_server_list = ["${var.dns_list}"]
-  dns_suffix_list = ["${var.dns_search}"]
+  dns_server_list = [var.dns_list]
+  dns_suffix_list = [var.dns_search]
     }
   }
 }

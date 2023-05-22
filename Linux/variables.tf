@@ -12,6 +12,17 @@ variable "vsphere_vcenter" {
   description = "vCenter to connect to"
 }
 
+#variable "domain_secret" {
+#  description = "domain secret"
+#  sensitive   = true
+#  type        = string
+#}
+#variable "winadmin_password" {
+#  sensitive   = true
+#  type        = string
+#  description = "windows doamin admin pass"
+#}
+
 variable "vmware_net" {
   type        = string
   description = "vmware"
@@ -19,7 +30,7 @@ variable "vmware_net" {
 
 variable "vmware_storage" {
   type        = string
-  default     = "SAN"
+  default     = "Unity-L1"
   description = "vmware storage"
 }
 
@@ -31,10 +42,10 @@ variable "vmware_template_STR" {
 variable "vmware_template" {
   type = map 
   default = {
-    ubuntu18  = "ubuntu18-tmp"
     ubuntu20 = "ubuntu20-tmp"
+    ubuntu22 = "Ubuntu22-tmp"
   }
-  description = "values are ubuntu20 ubuntu18"
+  description = "values are win2019 win2020 ubuntu20"
 }
 
 variable "vmware_folder" {
@@ -45,12 +56,10 @@ variable "vmware_vmname" {
 }
 
 variable "vmware_vmcpu" {
-#  default = "4"
 
 }
 
 variable "vmware_vmram" {
- # default = "8000"
 
 }
 
@@ -62,11 +71,15 @@ variable "vmware_gwip" {
 
 }
 variable "dns_list" {
-  default = "8.8.8.8,1.1.1.1"
+  default = "10.104.126.11,10.104.126.17"
 }
 
 variable "dns_search" {
-  default = "example.local"
+  default = "siteb.local,charisma.local"
+}
+
+variable "vmware_clustername" {
+  default = "Asiatech-General"
 }
 
 variable "vmware_sorage-size" {
