@@ -15,5 +15,5 @@ provider "vsphere" {
   allow_unverified_ssl = true
 }
 data "vsphere_datacenter" "dc" {
-  name = "Asiatech-General"
+  name = "DC-General"
 }
