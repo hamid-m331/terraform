@@ -71,15 +71,15 @@ variable "vmware_gwip" {
 
 }
 variable "dns_list" {
-  default = "10.104.126.11,10.104.126.17"
+  default = "dns1,dns2"
 }
 
 variable "dns_search" {
-  default = "siteb.local,charisma.local"
+  default = "A.local,B.local"
 }
 
 variable "vmware_clustername" {
-  default = "Asiatech-General"
+  default = "DC-General"
 }
 
 variable "vmware_sorage-size" {
